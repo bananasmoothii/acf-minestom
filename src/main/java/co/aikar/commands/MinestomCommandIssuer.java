@@ -5,6 +5,7 @@ import net.minestom.server.command.CommandSender;
 import net.minestom.server.entity.Player;
 import net.minestom.server.network.ConnectionManager;
 import org.jetbrains.annotations.NotNull;
+import world.cepi.kstom.util.PermissionUtilKt;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
@@ -57,7 +58,7 @@ public class MinestomCommandIssuer implements CommandIssuer {
 
     @Override
     public boolean hasPermission(String permission) {
-        return sender.hasPermission(permission);
+        return PermissionUtilKt.hasDeepPermission(sender, permission);
     }
 
     @Override
